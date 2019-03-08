@@ -5,11 +5,13 @@ import sys
 
 import requests
 
-from settings import PASTEBIN_DEV_KEY, PASTEBIN_USER_KEY
+from secrets import PASTEBIN_DEV_KEY, PASTEBIN_USER_KEY
 
 parser = argparse.ArgumentParser(description='uploads file to pastebin')
 
-parser.add_argument('file', help='the file to upload', nargs='?', default=sys.stdin)
+parser.add_argument('file',
+                    help='the file to upload. reads from stdin if file is not specified',
+                    nargs='?', default=sys.stdin)
 
 args = parser.parse_args()
 
