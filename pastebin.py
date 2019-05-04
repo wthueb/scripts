@@ -7,6 +7,7 @@ import requests
 
 from secrets import PASTEBIN_DEV_KEY, PASTEBIN_USER_KEY
 
+
 class Parser(argparse.ArgumentParser):
     def error(self, message):
         sys.stderr.write('error: %s\n' % message)
@@ -14,6 +15,7 @@ class Parser(argparse.ArgumentParser):
         self.print_help()
 
         sys.exit(1)
+
 
 parser = Parser(description='uploads file to pastebin')
 
@@ -50,4 +52,7 @@ data = {
 
 r = requests.post(url, data=data)
 
-print(r.text)
+if r.status_code == 200:
+    print(r.text)
+else:
+    print(f'there was an error: {r.text}')
