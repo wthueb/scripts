@@ -1,12 +1,14 @@
-#!/usr/bin/env python3
+from subprocess import run
 
-import pkg_resources
-from subprocess import call
+res = run('pip3 freeze'.split(), capture_output=True)
 
-packages = []
+packages = [s.strip() for s in res.stdout.decode('utf-8').split('\n') if s.strip()]
+packages = [p.split('==')[0] for p in packages]
 
-for dist in pkg_resources.working_set:
-    if not dist.project_name.startswith('-'):
-        packages.append(dist.project_name)
+packages_str = ' '.join(packages)
 
-call('pip3 install --upgrade --user ' + ' '.join(reversed(packages)), shell=True)
+command = f'pip3 install --upgrade {packages_str}'
+
+print(command)
+
+run(command.split())
