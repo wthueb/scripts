@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from subprocess import run
 
 res = run('pip3 freeze'.split(), capture_output=True)
