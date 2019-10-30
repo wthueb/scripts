@@ -27,10 +27,10 @@ parser.add_argument('file', help='the file to upload. default: stdin', nargs='?'
 
 args = parser.parse_args()
 
-if isinstance(args.file, str):
+if isinstance(args.file, str): # reading from a file
     with open(args.file) as f:
         text = f.read()
-else:
+else: # reading from stdin
     try:
         text = args.file.read()
     except KeyboardInterrupt:

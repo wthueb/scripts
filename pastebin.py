@@ -5,7 +5,12 @@ import sys
 
 import requests
 
-from secrets import PASTEBIN_DEV_KEY, PASTEBIN_USER_KEY
+from secrets import PASTEBIN_DEV_KEY
+
+try:
+    from secrets import PASTEBIN_USER_KEY
+except:
+    PASTEBIN_USER_KEY = ''
 
 
 class Parser(argparse.ArgumentParser):
@@ -27,10 +32,10 @@ parser.add_argument('-u', '--unlisted', action='store_true',
 
 args = parser.parse_args()
 
-if isinstance(args.file, str):
+if isinstance(args.file, str): # reading from a file
     with open(args.file) as f:
         text = f.read()
-else:
+else: # reading from stdin
     try:
         text = args.file.read()
     except KeyboardInterrupt:
@@ -48,7 +53,7 @@ data = {
         'api_paste_code': text,
         'api_paste_private': f'{int(args.unlisted)}', # 0:public 1:unlisted 2:private
         'api_paste_expire_date': 'N' # never expire
-        }
+}
 
 r = requests.post(url, data=data)
 
