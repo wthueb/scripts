@@ -6,7 +6,7 @@ import sys
 import requests
 
 try:
-    from secrets import HASTEBIN_BASE_URL
+    from config import HASTEBIN_BASE_URL
 except:
     HASTEBIN_BASE_URL = 'https://hastebin.com'
 

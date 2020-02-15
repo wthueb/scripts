@@ -6,7 +6,7 @@ import sys
 
 import requests
 
-from secrets import IMGUR_CLIENT_ID
+from config import IMGUR_CLIENT_ID
 
 
 class Parser(argparse.ArgumentParser):

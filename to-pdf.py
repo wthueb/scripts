@@ -6,7 +6,7 @@ from sys import argv
 
 import convertapi
 
-from secrets import CONVERTAPI_KEY
+from config import CONVERTAPI_KEY
 
 usage = 'usage: to-pdf INPUT_FILE [OUTPUT_FILE]'
 

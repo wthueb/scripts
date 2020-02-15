@@ -5,10 +5,10 @@ import sys
 
 import requests
 
-from secrets import PASTEBIN_DEV_KEY
+from config import PASTEBIN_DEV_KEY
 
 try:
-    from secrets import PASTEBIN_USER_KEY
+    from config import PASTEBIN_USER_KEY
 except:
     PASTEBIN_USER_KEY = ''
 
