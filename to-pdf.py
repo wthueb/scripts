@@ -32,8 +32,8 @@ else:
 
     output_file += '.pdf'
 
-result = convertapi.convert('pdf', { 'File': input_file })
+result = convertapi.convert('pdf', {'File': input_file})
 
 result.file.save(output_file)
 
-print(input_file + ' -> ' + output_file) 
+print(input_file + ' -> ' + output_file)

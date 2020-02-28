@@ -7,7 +7,7 @@ import requests
 
 try:
     from config import HASTEBIN_BASE_URL
-except:
+except Exception:
     HASTEBIN_BASE_URL = 'https://hastebin.com'
 
 
@@ -23,14 +23,14 @@ class Parser(argparse.ArgumentParser):
 parser = Parser(description=f'uploads file to {HASTEBIN_BASE_URL}')
 
 parser.add_argument('file', help='the file to upload. default: stdin', nargs='?',
-        default=sys.stdin)
+                    default=sys.stdin)
 
 args = parser.parse_args()
 
-if isinstance(args.file, str): # reading from a file
+if isinstance(args.file, str):  # reading from a file
     with open(args.file) as f:
         text = f.read()
-else: # reading from stdin
+else:  # reading from stdin
     try:
         text = args.file.read()
     except KeyboardInterrupt:

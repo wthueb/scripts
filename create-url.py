@@ -2,7 +2,6 @@
 
 import argparse
 import os
-import sys
 
 
 parser = argparse.ArgumentParser(description='creates shortcut to link')
