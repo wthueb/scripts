@@ -11,6 +11,6 @@ packages_str = ' '.join(packages)
 
 command = f'pip install --upgrade {packages_str}'
 
-print(command, flush=True)
+print('>', command, flush=True)
 
 run(command.split())
