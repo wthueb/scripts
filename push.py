@@ -5,6 +5,7 @@ import sys
 
 from pushover import Client
 
+
 class Parser(argparse.ArgumentParser):
     def error(self, message):
         sys.stderr.write('error: %s\n' % message)
@@ -16,9 +17,9 @@ class Parser(argparse.ArgumentParser):
 
 parser = Parser(description=f'sends notification to pushover')
 
-parser.add_argument('--title', help='the title of the notification')
+parser.add_argument('--title', help='the title of the push')
 parser.add_argument('--attachment', help='an image file to be attached')
-parser.add_argument('text', help='the file to upload. default: stdin', nargs='?', default=sys.stdin)
+parser.add_argument('text', help='the text to push. default: stdin', nargs='?', default=sys.stdin)
 
 args = parser.parse_args()
 
