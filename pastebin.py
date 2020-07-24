@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import argparse
 import sys
@@ -51,7 +51,8 @@ data = {
     'api_paste_name': args.file,  # title
     'api_option': 'paste',
     'api_paste_code': text,
-    'api_paste_private': f'{int(args.unlisted)}',  # 0:public 1:unlisted 2:private
+    # 0:public 1:unlisted 2:private
+    'api_paste_private': f'{int(args.unlisted)}',
     'api_paste_expire_date': 'N'  # never expire
 }
 
