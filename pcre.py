@@ -18,9 +18,9 @@ class Parser(argparse.ArgumentParser):
 
 parser = Parser(description='grep, but using perl compatible regular expressions')
 
-parser.add_argument('-o', '--only-match',
+parser.add_argument('-o', '--only-matching',
                     help='only print the matching part of the line',
-                    dest='only_match',
+                    dest='only_matching',
                     action='store_true')
 
 parser.add_argument('pattern', help='the pattern to search for')
@@ -41,7 +41,7 @@ for line in args.file.readlines():
     match = pattern.search(line)
 
     if match:
-        if args.only_match:
+        if args.only_matching:
             print(colored(match.group(), 'green'))
         else:
             start_of_group = match.span()[0]
