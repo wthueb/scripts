@@ -23,6 +23,11 @@ parser.add_argument('-o', '--only-matching',
                     dest='only_matching',
                     action='store_true')
 
+parser.add_argument('-v', '--invert-match',
+                    help='print non-matching lines',
+                    dest='invert_match',
+                    action='store_true')
+
 parser.add_argument('pattern', help='the pattern to search for')
 
 parser.add_argument('file',
@@ -50,3 +55,5 @@ for line in args.file.readlines():
             output = line[:start_of_group] + colored(match.group(), 'green') + line[end_of_group:]
 
             print(output)
+    elif args.invert_match:
+        print(line)
