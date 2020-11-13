@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 
 from subprocess import run
 
@@ -9,7 +9,7 @@ packages = [p.split('==')[0] for p in packages]
 
 packages_str = ' '.join(packages)
 
-command = f'python3 -m pip install --upgrade {packages_str}'
+command = f'python -m pip install --upgrade {packages_str}'
 
 print('>', command, flush=True)
 
