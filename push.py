@@ -15,7 +15,7 @@ class Parser(argparse.ArgumentParser):
         sys.exit(1)
 
 
-parser = Parser(description=f'sends notification to pushover')
+parser = Parser(description='sends notification to pushover')
 
 parser.add_argument('--title', help='the title of the push')
 parser.add_argument('--attachment', help='an image file to be attached')
